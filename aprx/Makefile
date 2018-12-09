@@ -24,14 +24,14 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_SOURCE_SUBDIR)
 
 include $(INCLUDE_DIR)/package.mk
 
-# TARGET_CFLAGS += $(FPIC)
+TARGET_CFLAGS += $(FPIC)
 MAKE_FLAGS += \
     LD="$(TARGET_CC)"
 
 define Package/aprx
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libpthread
+  DEPENDS:=+libpthread +libax25
   TITLE:=Hamradio APRS iGate / Digipeater
   URL:=@GITHUB/Alianiqu/aprx
   MAINTAINER:=Alianiqu <Alianiqu@example.net>
