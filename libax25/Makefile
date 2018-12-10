@@ -28,7 +28,6 @@ TARGET_CFLAGS += $(FPIC)
 PKG_BUILD_DEPENDS += libax25-dev
 TARGET_CFLAGS     += -I$(STAGING_DIR)/usr/include
 TARGET_LDFLAGS    += -L$(STAGING_DIR)/usr/lib
-# -I$(STAGING_DIR)/root-brcm2708/usr/include
 
 define Package/libax25
   SECTION:=net
@@ -54,7 +53,22 @@ define Build/libax25/Compile
 endef
 
 define Package/libax25/install
-	$(INSTALL_DIR) $(1)/usr/lib
+	$(INSTALL_DIR)   $(1)/usr/lib
+	$(INSTALL_BIN)   $(PKG_BUILD_DIR)/.libs/libax25.so.0.0.0    $(1)/usr/lib/libax25.so
+	$(INSTALL_BIN)   $(PKG_BUILD_DIR)/.libs/libax25io.so.0.0.0  $(1)/usr/lib/libax25io.so
+
+#	Development section
+#	$(INSTALL_DIR)   $(1)/usr/include/netax25
+#	$(INSTALL_DATA)  $(STAGING_DIR)/usr/include/netax25/ax25.h  $(1)/usr/include/netax25
+
+#	$(CP)            $(PKG_BUILD_DIR)/*.h                       $(1)/usr/include/netax25
+
+#	$(INSTALL_DIR)   $(1)/usr/include/netrose
+#	$(INSTALL_DATA)  $(STAGING_DIR)/usr/include/netrose/rose.h  $(1)/usr/include/netrose
+
+#	$(INSTALL_DIR)   $(1)/usr/include/bits
+#	$(INSTALL_DATA)  $(STAGING_DIR)/usr/include/bits/sockaddr.h $(1)/usr/include/bits
+
 endef
 
 $(eval $(call BuildPackage,libax25))
