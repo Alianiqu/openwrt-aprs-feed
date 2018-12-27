@@ -37,6 +37,7 @@ MAKE_FLAGS += \
     HOSTCC="$(HOSTCC)" \
     HOST_CFLAGS="$(HOST_CFLAGS) -lm" \
     HOST_LDFLAGS="$(HOST_LDFLAGS) -lm" \
+    DESTDIR="/usr/" \
     -f Makefile.linux tocalls-symbols all
 
 define Package/direwolf
