@@ -44,7 +44,7 @@ MAKE_FLAGS += \
 define Package/direwolf
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libpthread +alsa-lib
+  DEPENDS:=+libpthread +alsa-lib +kmod-usb2 +kmod-sound-core +kmod-sound-hda-core +kmod-sound-hda-codec-cmedia +alsa-utils +alsa-utils-seq
   TITLE:=Hamradio APRS iGate / Digipeater
   URL:=@GITHUB/Alianiqu/direwolf
   MAINTAINER:=Alianiqu <Alianiqu@example.net>
