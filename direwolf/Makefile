@@ -44,7 +44,14 @@ MAKE_FLAGS += \
 define Package/direwolf
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libpthread +alsa-lib +kmod-usb2 +kmod-sound-core +kmod-sound-hda-core +kmod-sound-hda-codec-cmedia +alsa-utils +alsa-utils-seq
+  DEPENDS:=+libpthread +alsa-lib +alsa-utils +alsa-utils-seq +usbutils \
+           +kmod-usb2 +kmod-sound-core +kmod-usb-audio +kmod-sound-hda-core \
+           +kmod-sound-hda-codec-analog +kmod-sound-hda-codec-ca0110 \
+           +kmod-sound-hda-codec-ca0132 +kmod-sound-hda-codec-cirrus \
+           +kmod-sound-hda-codec-cmedia +kmod-sound-hda-codec-conexant \
+           +kmod-sound-hda-codec-idt +kmod-sound-hda-codec-realtek \
+           +kmod-sound-hda-codec-si3054 +kmod-sound-hda-codec-via \
+           +kmod-sound-hda-intel
   TITLE:=Hamradio APRS iGate / Digipeater
   URL:=@GITHUB/Alianiqu/direwolf
   MAINTAINER:=Alianiqu <Alianiqu@example.net>
